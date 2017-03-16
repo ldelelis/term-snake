@@ -11,7 +11,9 @@ namespace Init {
     noecho();                       // Deshabilita el print del caracter tomado
     keypad(stdscr, TRUE);           // Nos permite usar las flechas (vital para el juego)
     nodelay(stdscr, TRUE);          // Tomamos ingresos sin esperarlos
-    getmaxyx(stdscr, xRows, yCols); // Devuelve el maximo de columnas y filas
+    getmaxyx(stdscr, yCols, xRows); // Devuelve el maximo de columnas y filas
+    xRows /= 2;
+    yCols /= 2;
   }
 }
 

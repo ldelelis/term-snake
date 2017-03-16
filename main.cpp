@@ -14,22 +14,20 @@ int main () {
     keyPressed = getch();
     switch (keyPressed) {
       case KEY_UP:
-        std::cout << "flecha arriba\r" << std::endl;
+        --yCols;
+        mvprintw(yCols, xRows, "flecha arriba\r");
         break;
       case KEY_DOWN:
-        std::cout << "flecha abajo\r" << std::endl;
+        ++yCols;
+        mvprintw(yCols, xRows, "flecha abajo\r");
         break;
       case KEY_LEFT:
-        std::cout << "flecha izquierda\r" << std::endl;
+        --xRows;
+        mvprintw(yCols, xRows, "flecha izquierda\r");
         break;
       case KEY_RIGHT:
-        std::cout << "flecha derecha\r" << std::endl;
-        break;
-      case 'o':
-        std::cout << xRows << std::endl;
-        break;
-      case 'p':
-        std::cout << yCols << std::endl;
+        ++xRows;
+        mvprintw(yCols, xRows, "flecha derecha\r");
         break;
     }
     refresh();
