@@ -7,7 +7,8 @@
 void inicializarNcurses();
 
 int main () {
-  Init::inicializarNcurses();        // Arrancamos todas las funciones necesarias para iniciar el modo ncurses
+  int xRows=0, yCols=0;
+  Init::inicializarNcurses(xRows, yCols);        // Arrancamos todas las funciones necesarias para iniciar el modo ncurses
   int keyPressed = 0;
   while (keyPressed != 27) {
     keyPressed = getch();
@@ -23,6 +24,12 @@ int main () {
         break;
       case KEY_RIGHT:
         std::cout << "flecha derecha\r" << std::endl;
+        break;
+      case 'o':
+        std::cout << xRows << std::endl;
+        break;
+      case 'p':
+        std::cout << yCols << std::endl;
         break;
     }
     refresh();
