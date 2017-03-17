@@ -14,24 +14,48 @@ int main () {
   while (keyPressed != 27) {
     keyPressed = getch();
     if (keyPressed == KEY_UP || curMovement == 'u') {
-        --yCols;
         curMovement = 'u';
-        mvprintw(yCols, xRows, "flecha arriba\r");
+        if (xRows != 0 && yCols != 0) {
+            --yCols;
+            mvprintw(yCols, xRows, "flecha arriba\r");
+        } else {
+          erase();
+          Init::inicializarAxis(xRows, yCols);
+          curMovement = 'a';
+        }
     }
     else if (keyPressed == KEY_DOWN || curMovement == 'd') {
-        ++yCols;
         curMovement = 'd';
-        mvprintw(yCols, xRows, "flecha abajo\r");
+        if (xRows != 0 && yCols != 0) {
+            ++yCols;
+            mvprintw(yCols, xRows, "flecha abajo\r");
+        } else {
+          erase();
+          Init::inicializarAxis(xRows, yCols);
+          curMovement = 'a';
+        }
     }
     else if (keyPressed == KEY_LEFT || curMovement == 'l') {
-        --xRows;
         curMovement = 'l';
-        mvprintw(yCols, xRows, "flecha izquierda\r");
+        if (xRows != 0 && yCols != 0) {
+            --xRows;
+            mvprintw(yCols, xRows, "flecha izquierda\r");
+        } else {
+          erase();
+          Init::inicializarAxis(xRows, yCols);
+          curMovement = 'a';
+        }
     }
     else if (keyPressed == KEY_RIGHT || curMovement == 'r') {
-        ++xRows;
         curMovement = 'r';
-        mvprintw(yCols, xRows, "flecha derecha\r");
+        if (xRows != 0 && yCols != 0) {
+            ++xRows;
+            mvprintw(yCols, xRows, "flecha derecha\r");
+        } else {
+          erase();
+          Init::inicializarAxis(xRows, yCols);
+          curMovement = 'a';
+        }
     }
     refresh();
   }
