@@ -29,7 +29,7 @@ int main () {
         }
         else if (keyPressed == KEY_DOWN || curMovement == 'd') {
             curMovement = 'd';
-            if (xRows != 0 && yCols != 0) {
+            if (xRows != COLS && yCols != LINES) {
                 ++yCols;
                 mvprintw(yCols, xRows, "flecha abajo\r");
             } else {
@@ -51,7 +51,7 @@ int main () {
         }
         else if (keyPressed == KEY_RIGHT || curMovement == 'r') {
             curMovement = 'r';
-            if (xRows != 0 && yCols != 0) {
+            if (xRows != COLS  && yCols != LINES) {
                 ++xRows;
                 mvprintw(yCols, xRows, "flecha derecha\r");
             } else {
@@ -62,7 +62,7 @@ int main () {
         }
         refresh();
     } else {
-        CURRENT_FRAME += 1;
+        ++CURRENT_FRAME;
     }
   }
   endwin();
