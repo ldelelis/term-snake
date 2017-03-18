@@ -6,8 +6,6 @@
 
 #define LIMIT_FRAMES 60000000
 
-void inicializarNcurses();
-
 int main () {
   int xRows=0, yCols=0, keyPressed=0, CURRENT_FRAME=0;
   char curMovement;
