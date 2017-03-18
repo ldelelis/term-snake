@@ -2,6 +2,7 @@
 #define INIT_HPP
 
 #include <ncurses.h>
+#include <iostream>
 
 
 namespace Init {
@@ -18,6 +19,24 @@ namespace Init {
     keypad(stdscr, TRUE);           // Nos permite usar las flechas (vital para el juego)
     nodelay(stdscr, TRUE);          // Tomamos ingresos sin esperarlos
     Init::inicializarAxis(xRows, yCols);
+  }
+
+  char inicializarTecla(char curMovement) {
+    int keyPressed = getch();
+    switch (keyPressed) {
+      case KEY_UP:
+        return 'u';
+      case KEY_DOWN:
+        return 'd';
+      case KEY_LEFT:
+        return 'l';
+      case KEY_RIGHT:
+        return 'r';
+      case 27:
+        return 'e';
+      default:
+        return curMovement;
+    }
   }
 }
 
