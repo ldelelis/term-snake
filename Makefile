@@ -16,4 +16,4 @@ $(OBJDIR)/%.o: $(SRCDIR)$(SRC)
 	$(CC) $(CXXLFAGS) -c -o $(OBJDIR)$@ $< 
 
 run: $(SRCDIR)$(SRC) 
-	$(CC) $(CXXFLAGS) $(DEPSDIR)init.hpp $(DEPSDIR)snake.hpp $(SRCDIR)$(SRC) -o $(TGDIR)$(TARGET) 
+	$(CC) $(CXXFLAGS) $(DEPSDIR)init.hpp $(DEPSDIR)snake.hpp $(SRCDIR)main.cpp $(SRCDIR)init.cpp -o $(TGDIR)$(TARGET) 
