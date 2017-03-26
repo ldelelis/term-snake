@@ -19,16 +19,28 @@ namespace Init {
     Init::inicializarAxis(xRows, yCols);
   }
 
-  char inicializarTecla(char curMovement) {
+  char inicializarTecla(char curMovement, char lastMovement) {
     int keyPressed = getch();
     switch (keyPressed) {
     case KEY_UP:
+      if (lastMovement == 'd') {
+        return curMovement;
+      }
       return 'u';
     case KEY_DOWN:
+      if (lastMovement == 'u') {
+        return curMovement;
+      }
       return 'd';
     case KEY_LEFT:
+      if (lastMovement == 'r') {
+        return curMovement;
+      }
       return 'l';
     case KEY_RIGHT:
+      if (lastMovement == 'l') {
+        return curMovement;
+      }
       return 'r';
     case 27:
       return 'e';

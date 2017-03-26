@@ -6,10 +6,11 @@
 
 int main () {
   int xRows=0, yCols=0, keyPressed=0;
-  char curMovement;
+  char curMovement='a', lastMovement='a';
   Init::inicializarNcurses(xRows, yCols);        // Arrancamos todas las funciones necesarias para iniciar el modo ncurses
-  while ((int)curMovement != 27) {
-    curMovement = Init::inicializarTecla(curMovement);
+  while (curMovement != 'e') {
+    lastMovement = curMovement;
+    curMovement = Init::inicializarTecla(curMovement, lastMovement);
       keyPressed = getch();
       if (curMovement == 'u') {
           if (xRows != 0 && yCols != 0) {
