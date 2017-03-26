@@ -16,6 +16,7 @@ namespace Init {
     noecho();                       // Deshabilita el print del caracter tomado
     keypad(stdscr, TRUE);           // Nos permite usar las flechas (vital para el juego)
     nodelay(stdscr, TRUE);          // Tomamos ingresos sin esperarlos
+    curs_set(0);
     Init::inicializarAxis(xRows, yCols);
   }
 
