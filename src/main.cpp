@@ -3,6 +3,8 @@
 #include "init.hpp"
 #include "snake.hpp"
 
+typedef unsigned int uint_t;
+
 int main () {
   int xRows=0, yCols=0, lastX, lastY;
   char curMovement='a', lastMovement='a';
