@@ -7,7 +7,13 @@ private:
   unsigned int xPos, yPos, lastXPos, lastYPos;
 public:
   Snake (uint_t xPos, uint_t yPos, uint_t lastXPos, uint_t lastYPos);
-  moveSegmentsTick();
+  void moveSegmentsTick();
+  uint_t getX();
+  uint_t getY();
+  void incrementX();
+  void incrementY();
+  void decrementX();
+  void decrementY();
 };
 
 #endif
