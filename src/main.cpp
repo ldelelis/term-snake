@@ -6,7 +6,7 @@
 typedef unsigned int uint_t;
 
 int main () {
-  int xRows=0, yCols=0, lastX, lastY;
+  uint_t xRows=0, yCols=0, lastX, lastY;
   char curMovement='a', lastMovement='a';
   Init::inicializarNcurses(xRows, yCols);        // Arrancamos todas las funciones necesarias para iniciar el modo ncurses
   while (curMovement != 'e') {                   // Mientras no hayamos apretado ESC

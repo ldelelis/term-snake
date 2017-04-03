@@ -8,6 +8,7 @@ private:
 public:
   Snake (uint_t xPos, uint_t yPos, uint_t lastXPos, uint_t lastYPos);
   void moveSegmentsTick();
+  void moveLastSegment(uint_t lastX, uint_t lastY);
   uint_t getX();
   uint_t getY();
   void incrementX();

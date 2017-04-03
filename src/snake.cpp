@@ -2,9 +2,10 @@
 
 #include "snake.hpp"
 
-Snake::Snake() {
-  this.xPos = this.lastXPos;
-  this.yPos = this.lastYPos;
+Snake::Snake(uint_t lastX, uint_t lastY) {
+  this.xPos = 600;
+  this.yPos = 600;
+  this.moveLastSegment(lastX, lastY);
 }
 
 uint_t getX() {
@@ -34,4 +35,9 @@ void decrementY() {
 void moveSegmentsTick (uint_t tempLastX, uint_t tempLastY) {
   mvprintw(this.yPos, this.xPos, this.segment);
   mvprintw(this.lastXpos, this.lastYpos, " ");
+}
+
+void moveLastSegment (uint_t lastX, uint_t lastY) {
+  this.x = lastX;
+  this.y = lastY;
 }
