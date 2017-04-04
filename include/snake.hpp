@@ -18,3 +18,8 @@ public:
 };
 
 #endif
+
+previo al metodo se mueve manualmente el primer segmento
+metodochotoparamoverse (vector serpiente, lastx, lasty) {
+  
+}
