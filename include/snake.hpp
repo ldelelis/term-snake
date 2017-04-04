@@ -6,7 +6,7 @@ private:
   const char segment = '#';
   unsigned int xPos, yPos, lastXPos, lastYPos;
 public:
-  Snake (uint_t xPos, uint_t yPos, uint_t lastXPos, uint_t lastYPos);
+  Snake (uint_t xPos, uint_t yPos) : xPos(600), yPos(600);
   void moveSegmentsTick();
   void moveLastSegment(uint_t lastX, uint_t lastY);
   uint_t getX();
