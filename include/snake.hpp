@@ -1,9 +1,11 @@
 #ifndef SNAKE_HPP
 #define SNAKE_HPP
 
+#include <string>
+
 class Snake {
 private:
-  const char segment = '#';
+  std::string segment = '#\r';
   unsigned int xPos, yPos, lastXPos, lastYPos;
 public:
   Snake (uint_t xPos, uint_t yPos) : xPos(600), yPos(600);

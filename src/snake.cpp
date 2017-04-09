@@ -10,7 +10,7 @@ Snake::Snake(uint_t lastX, uint_t lastY) {
 
 void moveSegmentsTick (uint_t tempLastX, uint_t tempLastY) {
   mvprintw(this.yPos, this.xPos, this.segment);
-  mvprintw(this.lastXpos, this.lastYpos, " ");
+  mvprintw(this.lastXpos, this.lastYpos, " \r");
 }
 
 void moveLastSegment (uint_t lastX, uint_t lastY) {
