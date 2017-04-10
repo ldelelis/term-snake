@@ -14,6 +14,8 @@ public:
   void printSegmentsTick();
   uint_t getX() { return this.xPos; }
   uint_t getY() { return this.yPos; }
+  void setX(uint_t x) { xPos = x; }
+  void setY(uint_t y) { yPos = y; }
   void incrementX() { ++this.xPos; }
   void incrementY() { ++this.yPos; }
   void decrementX() { --this.xPos; }
