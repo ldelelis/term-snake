@@ -1,43 +1,37 @@
 #include "snake.hpp"
 
-Snake::Snake(uint_t lastX, uint_t lastY) {
-  this.xPos = 600;
-  this.yPos = 600;
-  this.moveLastSegment(lastX, lastY);
-}
-
 void printSegmentsTick (std::string snakeVector, int it) {
-  mvprintw(snakeVector.at(it).yPos, snakeVector.at(it).xPos, snakeVector.segment);
-  mvprintw(snakeVector.at(it).lastXpos, snakeVector.at(it).lastYpos, " \r");
+  mvprintw(snakeVector.at(it).yPos, snakeVector.at(it).xPos, snakeVector.segment); //Imprimimos el segmento en la posición avanzada...
+  mvprintw(snakeVector.at(it).lastXpos, snakeVector.at(it).lastYpos, " \r"); // Y borramos el leftover en la posición anterior.
 }
 
 void moveSegmentsTick (std::vector snakeVector) {
-  int it=0;
-  for (it;it<=snakeVector.size(); it++) {
-    snakeVector.at(it).lastXPos = vibora.at(it).xPos;
-    snakeVector.at(it).lastYPos = vibora.at(it).yPos;
-    if (it > 0) {
-      snakeVector.at(it).xPos = snakeVector.at(it-1).lastXPos;
-      snakeVector.at(it).yPos = snakeVector.at(it-1).lastYPos;
-    } else {
-      this.moveHead(curMovement);
+  int it=0;    // Inicializamos el iterador en el indice 0.
+  for (it; it<=snakeVector.size(); it++) {    // Arrancamos la iteración para cada segmento de la vibora.
+    snakeVector.at(it).lastXPos = vibora.at(it).xPos;  // Asignamos lo que seria la posición X anterior
+    snakeVector.at(it).lastYPos = vibora.at(it).yPos;  // Idem a la posición Y
+    if (it > 0) {  // Para todos los segmentos luego del primero (head)...
+      snakeVector.at(it).xPos = snakeVector.at(it-1).lastXPos;  // Le pasamos la posición X anterior del de adelante a la actual.
+      snakeVector.at(it).yPos = snakeVector.at(it-1).lastYPos;  // Idem a la pos Y
+    } else {  // Para el primer segmento (head)...
+      this.moveHead(curMovement);  // Leemos curMovement y asignamos la dirección
     }
-    printSegmentsTick (snakeVector, it);
+    printSegmentsTick (snakeVector, it); // Imprimimos cada segmento al final de cada iteración, luego de mover las posiciones correspondientes.
   }
 }
 
-void moveHead (char curMovement) {
+void moveHead (char curMovement) {    // Determinamos el movimiento segun la dirección actual.
   switch (curMovement) {
-    case 'u':
+  case 'u':   // Arriba
       this.decrementY();
       break;
-    case 'd':
+  case 'd':   // Abajo
       this.incrementY();
       break;
-    case 'l':
+  case 'l':   // Izquierda
       this.decrementX();
       break;
-    case 'r':
+  case 'r':   // Derecha
       this.incrementX();
       break;
   }
