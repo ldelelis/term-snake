@@ -4,10 +4,11 @@
 #include <ncurses.h>
 #include <iostream>
 
+#include "snake.hpp"
 
 namespace Init {
-  void inicializarAxis(int &xRows, int &yCols);
-  void inicializarNcurses(int &xRows, int &yCols);
+  void inicializarAxis(std::vector <Snake> &snakeVector);
+  void inicializarNcurses(std::vector <Snake> &snakeVector);
   char inicializarTecla(char curMovement, char lastMovement);
 }
 

@@ -1,17 +1,18 @@
 #include <ncurses.h>
 #include <iostream>
+#include <vector>
 
 #include "init.hpp"
-#include "snake.hpp"
 
 namespace Init {
   void inicializarAxis(std::vector <Snake> &snakeVector) {
     uint_t xRows, yCols;
+    snakeVector.emplace_back(600, 600);
     getmaxyx(stdscr, yCols, xRows); // Devuelve el maximo de columnas y filas
     xRows /= 2;                     // Centramos dicho máximo
     yCols /= 2;
-    snakeVector.setX(xRows);        // Y lo asignamos como valor inicial post constructor
-    snakeVector.setY(yCols);
+    snakeVector.at(0).setX(xRows);        // Y lo asignamos como valor inicial post constructor
+    snakeVector.at(0).setY(yCols);
   }
 
   void inicializarNcurses(std::vector <Snake> &snakeVector) {
