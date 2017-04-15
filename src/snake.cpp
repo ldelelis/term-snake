@@ -3,13 +3,13 @@
 void Snake::modifyHeadPos (char curMovement) {
   switch (curMovement) {
   case 'u':
-    --this->yPos;
+    this->yPos-=1;
   case 'd':
-    ++this->yPos;
+    this->yPos+=1;
   case 'l':
-    --this->xPos;
+    this->xPos-=1;
   case 'r':
-    ++this->xPos;
+    this->xPos+=1;
   default:
     return;
   }

@@ -7,11 +7,11 @@
 namespace Init {
   void inicializarAxis(std::vector <Snake> &snakeVector) {
     uint_t xRows, yCols;
-    snakeVector.emplace_back(600, 600);
+    snakeVector.emplace_back(600, 600, 600, 600);
     getmaxyx(stdscr, yCols, xRows); // Devuelve el maximo de columnas y filas
     xRows /= 2;                     // Centramos dicho máximo
     yCols /= 2;
-    snakeVector.at(0).setX(xRows);        // Y lo asignamos como valor inicial post constructor
+    snakeVector.at(0).setX(xRows);  // Y lo asignamos como valor inicial post constructor
     snakeVector.at(0).setY(yCols);
   }
 
@@ -30,22 +30,22 @@ namespace Init {
     switch (keyPressed) {           // Y trabajamos sobre tal
     case KEY_UP:                    // Arriba
       if (lastMovement == 'd') {    // Si colisiona con si misma
-        return curMovement;         // La dirección no cambia.
+        return lastMovement;         // La dirección no cambia.
       }
       return 'u';                   // Caso contrario, cambiamos de dirección.
     case KEY_DOWN:
       if (lastMovement == 'u') {
-        return curMovement;
+        return lastMovement;
       }
       return 'd';
     case KEY_LEFT:
       if (lastMovement == 'r') {
-        return curMovement;
+        return lastMovement;
       }
       return 'l';
     case KEY_RIGHT:
       if (lastMovement == 'l') {
-        return curMovement;
+        return lastMovement;
       }
       return 'r';
     case 27:                         // 27 es el intcode de Escape.

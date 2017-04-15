@@ -11,7 +11,7 @@ class Snake {
 private:
   uint_t xPos, yPos, lastXPos, lastYPos;
 public:
-  Snake (uint_t xPos, uint_t yPos) : xPos(600), yPos(600) {}
+  Snake (uint_t xPos, uint_t yPos, uint_t lastXPos, uint_t lastYPos) : xPos(600), yPos(600), lastXPos(600), lastYPos(600) {}
   uint_t getX() { return this->xPos; }
   uint_t getY() { return this->yPos; }
   uint_t getLastX() { return this->lastXPos; }
