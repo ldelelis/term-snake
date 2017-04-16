@@ -4,7 +4,7 @@
 namespace Movement {
   void printSegmentsTick (std::vector <Snake> &snakeVector, int it) {
     mvprintw(snakeVector.at(it).getY(), snakeVector.at(it).getX(), "#\r"); //Imprimimos el segmento en la posición avanzada...
-    mvprintw(snakeVector.at(it).getLastX(), snakeVector.at(it).getLastY(), " \r"); // Y borramos el leftover en la posición anterior.
+    mvprintw(snakeVector.at(it).getLastY(), snakeVector.at(it).getLastX(), " \r"); // Y borramos el leftover en la posición anterior.
   }
 
   void moveSegmentsTick (std::vector <Snake> &snakeVector, char curMovement) {

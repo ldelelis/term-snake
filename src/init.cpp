@@ -48,7 +48,7 @@ namespace Init {
         return lastMovement;
       }
       return 'r';
-    case 27:                         // 27 es el intcode de Escape.
+    case 27: case 'q':               // 27 es el intcode de Escape.
       return 'e';
     default:                         // Si no obtiene ningun ingreso...
       return curMovement;            // Sigue yendo en la misma dirección.
