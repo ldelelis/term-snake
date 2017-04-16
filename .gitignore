@@ -2,4 +2,4 @@
 build/*
 
 #Ignorar el binario de ejecución generado, pero dejar el directorio.
-bin/run
+run
