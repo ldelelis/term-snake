@@ -8,14 +8,12 @@ CXXINC= -I $(DEPSDIR)
 SRCS=main.cpp movement.cpp init.cpp snake.cpp
 SRCDIR=src/
 
-TGDIR=bin/
-
 OBJDIR=./build/
 OBJS=$(SRCS:.cpp=.o)
 
 run: objects
 	cd $(OBJDIR)
-	$(CXX) $(CXXFLAGS) $(wildcard $(OBJDIR)*) -o $(TGDIR)$@
+	$(CXX) $(CXXFLAGS) $(wildcard $(OBJDIR)*) -o $@
 	cd -
 
 objects:

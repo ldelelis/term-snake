@@ -3,7 +3,6 @@
 
 void Snake::modifyHeadPos (char &curMovement, std::vector <Snake> &snakeVector, uint_t it) {
   uint_t maxY, maxX;
-  getmaxyx(stdscr, maxY, maxX);
   switch (curMovement) {
   case 'u':
     this->yPos-=1;
