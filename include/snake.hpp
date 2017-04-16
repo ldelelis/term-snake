@@ -1,20 +1,27 @@
 #ifndef SNAKE_HPP
 #define SNAKE_HPP
 
+#include <ncurses.h>
+#include <string>
+#include <vector>
+#include <iostream>
+
+typedef unsigned int uint_t;
+
 class Snake {
 private:
-  const char segment = '#';
-  unsigned int xPos, yPos, lastXPos, lastYPos;
+  uint_t xPos, yPos, lastXPos, lastYPos;
 public:
-  Snake (uint_t xPos, uint_t yPos) : xPos(600), yPos(600);
-  void moveSegmentsTick();
-  void moveLastSegment(uint_t lastX, uint_t lastY);
-  uint_t getX();
-  uint_t getY();
-  void incrementX();
-  void incrementY();
-  void decrementX();
-  void decrementY();
+  Snake (uint_t xPos, uint_t yPos, uint_t lastXPos, uint_t lastYPos) : xPos(600), yPos(600), lastXPos(600), lastYPos(600) {}
+  uint_t getX() { return this->xPos; }
+  uint_t getY() { return this->yPos; }
+  uint_t getLastX() { return this->lastXPos; }
+  uint_t getLastY() { return this->lastYPos; }
+  void setX(uint_t x) { xPos = x; }
+  void setY(uint_t y) { yPos = y; }
+  void setLastX(uint_t x) { lastXPos = x; }
+  void setLastY(uint_t y) { lastYPos = y; }
+  void modifyHeadPos (char curMovement);
 };
 
 #endif
