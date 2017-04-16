@@ -8,7 +8,7 @@
 
 namespace Movement {
   void printSegmentsTick(std::vector <Snake> &snakeVector, int it);
-  void moveSegmentsTick(std::vector <Snake> &snakeVector, char curMovement);
+  void moveSegmentsTick(std::vector <Snake> &snakeVector, char &curMovement);
 }
 
 #endif

@@ -21,7 +21,7 @@ public:
   void setY(uint_t y) { yPos = y; }
   void setLastX(uint_t x) { lastXPos = x; }
   void setLastY(uint_t y) { lastYPos = y; }
-  void modifyHeadPos (char curMovement);
+  void modifyHeadPos (char &curMovement, std::vector <Snake> &snakeVector, uint_t it);
 };
 
 #endif

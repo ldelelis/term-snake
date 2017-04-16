@@ -2,12 +2,14 @@
 #include "snake.hpp"
 
 namespace Movement {
-  void printSegmentsTick (std::vector <Snake> &snakeVector, int it) {
+  void printSegmentsTick (std::vector <Snake> &snakeVector, int it, char curMovement) {
     mvprintw(snakeVector.at(it).getY(), snakeVector.at(it).getX(), "#\r"); //Imprimimos el segmento en la posición avanzada...
-    mvprintw(snakeVector.at(it).getLastY(), snakeVector.at(it).getLastX(), " \r"); // Y borramos el leftover en la posición anterior.
+    if (curMovement != 'a') {
+      mvprintw(snakeVector.at(it).getLastY(), snakeVector.at(it).getLastX(), " \r"); // Y borramos el leftover en la posición anterior.
+    }
   }
 
-  void moveSegmentsTick (std::vector <Snake> &snakeVector, char curMovement) {
+  void moveSegmentsTick (std::vector <Snake> &snakeVector, char &curMovement) {
     uint_t it=0, lastXPos=snakeVector.at(it).getLastX(),
       lastYPos=snakeVector.at(it).getLastY(),    // Inicializamos el iterador en el indice 0.
       xPos=snakeVector.at(it).getX(),
@@ -21,9 +23,9 @@ namespace Movement {
         snakeVector.at(it).setX(lastXPos);  // Le pasamos la posición X anterior del de adelante a la actual.
         snakeVector.at(it).setY(lastYPos);  // Idem a la pos Y
       } else {  // Para el primer segmento (head)...
-        snakeVector.at(it).modifyHeadPos(curMovement);  // Leemos curMovement y asignamos la dirección
+        snakeVector.at(it).modifyHeadPos(curMovement, snakeVector, it);  // Leemos curMovement y asignamos la dirección
       }
-      Movement::printSegmentsTick (snakeVector, it); // Imprimimos cada segmento al final de cada iteración, luego de mover las posiciones correspondientes.
+      Movement::printSegmentsTick (snakeVector, it, curMovement); // Imprimimos cada segmento al final de cada iteración, luego de mover las posiciones correspondientes.
     }
   }
 }

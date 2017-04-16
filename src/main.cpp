@@ -9,8 +9,8 @@ typedef unsigned int uint_t;
 
 int main () {
   std::vector <Snake> snakeVector;
-  char curMovement='a', lastMovement='a';
-  Init::inicializarNcurses(snakeVector);          // Arrancamos todas las funciones necesarias para iniciar el modo ncurses
+  char curMovement, lastMovement;
+  Init::inicializarNcurses(snakeVector, curMovement);          // Arrancamos todas las funciones necesarias para iniciar el modo ncurses
   while (curMovement != 'e') {                    // Mientras no hayamos apretado ESC
     lastMovement = curMovement;
     curMovement = Init::inicializarTecla(curMovement, lastMovement);     // Obtenemos el movimiento actual
