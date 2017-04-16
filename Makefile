@@ -1,5 +1,5 @@
 DEPS=init.hpp snake.hpp movement.hpp
-DEPSDIR=./include/
+DEPSDIR=include/
 
 CXX=g++
 CXXFLAGS=-Wall -Wextra -g -lncurses
@@ -8,15 +8,14 @@ CXXINC= -I $(DEPSDIR)
 SRCS=main.cpp movement.cpp init.cpp snake.cpp
 SRCDIR=src/
 
-TARGET=run
-TGDIR=./bin/
+TGDIR=bin/
 
 OBJDIR=./build/
 OBJS=$(SRCS:.cpp=.o)
 
 run: objects
 	cd $(OBJDIR)
-	$(CXX) $(CXXFLAGS) $(wildcard $(OBJDIR)*) -o $@
+	$(CXX) $(CXXFLAGS) $(wildcard $(OBJDIR)*) -o $(TGDIR)$@
 	cd -
 
 objects:

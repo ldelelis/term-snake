@@ -7,8 +7,8 @@
 #include "snake.hpp"
 
 namespace Init {
-  void inicializarAxis(std::vector <Snake> &snakeVector);
-  void inicializarNcurses(std::vector <Snake> &snakeVector);
+  void inicializarAxis(std::vector <Snake> &snakeVector, char &curMovement);
+  void inicializarNcurses(std::vector <Snake> &snakeVector, char &curMovement);
   char inicializarTecla(char curMovement, char lastMovement);
 }
 
