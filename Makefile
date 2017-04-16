@@ -1,19 +1,31 @@
-DEPS:=init.hpp snake.hpp
+DEPS=init.hpp snake.hpp movement.hpp
 DEPSDIR=./include/
 
-CC=g++
-CXXFLAGS=-lncurses -I$(DEPSDIR)
+CXX=g++
+CXXFLAGS=-Wall -Wextra -g -lncurses
+CXXINC= -I $(DEPSDIR)
 
-SRC=main.cpp
-SRCDIR=./src/
+SRCS=main.cpp movement.cpp init.cpp snake.cpp
+SRCDIR=src/
 
 TARGET=run
 TGDIR=./bin/
 
 OBJDIR=./build/
+OBJS=$(SRCS:.cpp=.o)
 
-$(OBJDIR)/%.o: $(SRCDIR)$(SRC)
-	$(CC) $(CXXLFAGS) -c -o $(OBJDIR)$@ $< 
+run: objects
+	cd $(OBJDIR)
+	$(CXX) $(CXXFLAGS) $(wildcard $(OBJDIR)*) -o $@
+	cd -
 
-run: $(SRCDIR)$(SRC) 
-	$(CC) $(CXXFLAGS) $(DEPSDIR)init.hpp $(DEPSDIR)snake.hpp $(SRCDIR)main.cpp $(SRCDIR)init.cpp -o $(TGDIR)$(TARGET) 
+objects:
+	mkdir build/
+	for file in $(SRCDIR)*; do \
+		$(CXX) -c $$file $(CXXINC); \
+	done
+	cd -
+	mv *.o $(OBJDIR)
+
+clean:
+	rm build/ -rf
