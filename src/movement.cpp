@@ -1,5 +1,4 @@
 #include "movement.hpp"
-#include "snake.hpp"
 
 namespace Movement {
   void printSegmentsTick (std::vector <Snake> &snakeVector, int it, char curMovement) {
@@ -9,7 +8,7 @@ namespace Movement {
     }
   }
 
-  void moveSegmentsTick (std::vector <Snake> &snakeVector, char &curMovement) {
+  void moveSegmentsTick (std::vector <Snake> &snakeVector, char &curMovement, Comida *&pedazo) {
     uint_t it=0, lastXPos=snakeVector.at(it).getLastX(),
       lastYPos=snakeVector.at(it).getLastY(),    // Inicializamos el iterador en el indice 0.
       xPos=snakeVector.at(it).getX(),
@@ -23,7 +22,7 @@ namespace Movement {
         snakeVector.at(it).setX(lastXPos);  // Le pasamos la posición X anterior del de adelante a la actual.
         snakeVector.at(it).setY(lastYPos);  // Idem a la pos Y
       } else {  // Para el primer segmento (head)...
-        snakeVector.at(it).modifyHeadPos(curMovement, snakeVector, it);  // Leemos curMovement y asignamos la dirección
+        snakeVector.at(it).modifyHeadPos(curMovement, snakeVector, pedazo);  // Leemos curMovement y asignamos la dirección
       }
       Movement::printSegmentsTick (snakeVector, it, curMovement); // Imprimimos cada segmento al final de cada iteración, luego de mover las posiciones correspondientes.
     }

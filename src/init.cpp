@@ -59,4 +59,11 @@ namespace Init {
       return curMovement;            // Sigue yendo en la misma dirección.
     }
   }
+
+  void inicializarFoodPointer(Comida *&pedazo) {
+    if (pedazo) {
+      delete pedazo;
+    }
+    pedazo = new Comida();
+  }
 }
