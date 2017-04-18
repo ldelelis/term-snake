@@ -6,6 +6,8 @@
 #include <vector>
 #include <iostream>
 
+#include "comida.hpp"
+
 typedef unsigned int uint_t;
 
 class Snake {
@@ -21,7 +23,7 @@ public:
   void setY(uint_t y) { yPos = y; }
   void setLastX(uint_t x) { lastXPos = x; }
   void setLastY(uint_t y) { lastYPos = y; }
-  void modifyHeadPos (char &curMovement, std::vector <Snake> &snakeVector, uint_t it);
+  void modifyHeadPos (char &curMovement, std::vector <Snake> &snakeVector, Comida *&pedazo);
 };
 
 #endif
