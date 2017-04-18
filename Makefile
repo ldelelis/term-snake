@@ -1,11 +1,11 @@
-DEPS=init.hpp snake.hpp movement.hpp
+DEPS=init.hpp snake.hpp movement.hpp comida.hpp
 DEPSDIR=include/
 
 CXX=g++
-CXXFLAGS=-Wall -Wextra -g -lncurses
+CXXFLAGS=-Wall -Wextra -g -lncurses -std=c++11
 CXXINC= -I $(DEPSDIR)
 
-SRCS=main.cpp movement.cpp init.cpp snake.cpp
+SRCS=main.cpp movement.cpp init.cpp snake.cpp comida.cpp
 SRCDIR=src/
 
 OBJDIR=./build/
