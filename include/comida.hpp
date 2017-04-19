@@ -8,6 +8,8 @@ private:
   uint_t xPos, yPos;
 public:
   Comida();
+  uint_t getX() { return this->xPos; }
+  uint_t getY() { return this->yPos; }
 };
 
 #endif
