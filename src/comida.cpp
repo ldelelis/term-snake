@@ -1,17 +1,20 @@
 //Definimos un macro para seguir el estilo de ncurses
-#define randyx(y,x) {                           \
-    uint_t maxY, maxX;                          \
-    getmaxyx(stdscr, maxY, maxX);               \
-    y=rand() % maxY;                            \
-    x=rand() % maxX;                            \
+#define randyx(y,x) {                         \
+  srand (time(NULL));                         \
+  uint_t maxY, maxX;                          \
+  getmaxyx(stdscr, maxY, maxX);               \
+  y=rand() % maxY-1;                          \
+  x=rand() % maxX-1;                          \
   }
 
 #include <ncurses.h>
+#include <stdio.h>
+#include <time.h>
 #include <stdlib.h>
 
 #include "comida.hpp"
 
 Comida::Comida() {
   randyx(this->yPos, this->xPos);
-  mvprintw (this->yPos, this->xPos, "*\r");
+  mvprintw (this->yPos, this->xPos, "+\r");
 }

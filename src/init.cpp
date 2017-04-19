@@ -31,7 +31,6 @@ namespace Init {
 
   char inicializarTecla(char curMovement, char lastMovement) {
     int keyPressed = getch();       // Esperamos el ingreso de una tecla
-    mvprintw(1,1, "%c", curMovement);
     switch (keyPressed) {           // Y trabajamos sobre tal
     case KEY_UP:                    // Arriba
       if (lastMovement == 'd') {    // Si colisiona con si misma

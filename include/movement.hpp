@@ -10,6 +10,8 @@
 namespace Movement {
   void printSegmentsTick(std::vector <Snake> &snakeVector, int it);
   void moveSegmentsTick(std::vector <Snake> &snakeVector, char &curMovement, Comida *&pedazo);
+  void growSize(std::vector <Snake> &snakeVector);
+  bool checkCollision(std::vector <Snake> &snakeVector);
 }
 
 #endif

@@ -1,5 +1,6 @@
 #include "snake.hpp"
 #include "init.hpp"
+#include "movement.hpp"
 
 void Snake::modifyHeadPos (char &curMovement, std::vector <Snake> &snakeVector, Comida *&pedazo) {
   uint_t maxY, maxX;
@@ -35,5 +36,13 @@ void Snake::modifyHeadPos (char &curMovement, std::vector <Snake> &snakeVector, 
     break;
   default:
     break;
+  }
+  if (Movement::checkCollision(snakeVector)) {
+      Init::inicializarAxis(snakeVector, curMovement);
+      Init::inicializarFoodPointer(pedazo);
+    }
+  if (this->xPos == pedazo->getX() && this->yPos == pedazo->getY()) {
+    Movement::growSize(snakeVector);
+    Init::inicializarFoodPointer(pedazo);
   }
 }

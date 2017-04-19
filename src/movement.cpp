@@ -9,11 +9,10 @@ namespace Movement {
   }
 
   void moveSegmentsTick (std::vector <Snake> &snakeVector, char &curMovement, Comida *&pedazo) {
-    uint_t it=0, lastXPos=snakeVector.at(it).getLastX(),
-      lastYPos=snakeVector.at(it).getLastY(),    // Inicializamos el iterador en el indice 0.
-      xPos=snakeVector.at(it).getX(),
-      yPos=snakeVector.at(it).getY();
+    uint_t it=0, lastXPos, lastYPos, xPos, yPos;
     for (it=0; it<snakeVector.size(); it++) {    // Arrancamos la iteración para cada segmento de la vibora.
+      xPos=snakeVector.at(it).getX();
+      yPos=snakeVector.at(it).getY();
       snakeVector.at(it).setLastX(xPos);  // Asignamos lo que seria la posición X anterior
       snakeVector.at(it).setLastY(yPos);  // Idem a la posición Y
       if (it > 0) {  // Para todos los segmentos luego del primero (head)...
@@ -26,5 +25,19 @@ namespace Movement {
       }
       Movement::printSegmentsTick (snakeVector, it, curMovement); // Imprimimos cada segmento al final de cada iteración, luego de mover las posiciones correspondientes.
     }
+  }
+
+  void growSize(std::vector <Snake> &snakeVector) {
+    snakeVector.emplace_back(600,600,600,600);
+  }
+
+  bool checkCollision(std::vector <Snake> &snakeVector) {
+    uint_t it;
+    for (it=3;it<snakeVector.size();it++) {
+      if (snakeVector.at(0).getY() == snakeVector.at(it).getY() && snakeVector.at(0).getX() == snakeVector.at(it).getX()) {
+        return true;
+      }
+    }
+    return false;
   }
 }
