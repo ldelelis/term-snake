@@ -17,7 +17,9 @@ run: objects
 	cd -
 
 objects:
-	mkdir build/
+	if [ ! -d "build" ]; then \
+		mkdir build/; \
+	fi
 	for file in $(SRCDIR)*; do \
 		$(CXX) -c $$file $(CXXINC); \
 	done

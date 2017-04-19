@@ -8,7 +8,6 @@
 
 #include <ncurses.h>
 #include <stdlib.h>
-#include <iostream>
 
 #include "comida.hpp"
 
