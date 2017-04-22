@@ -3,8 +3,8 @@
   srand (time(NULL));                         \
   uint_t maxY, maxX;                          \
   getmaxyx(stdscr, maxY, maxX);               \
-  y=rand() % maxY +1;                        \
-  x=rand() % maxX +1;                        \
+  y=rand() % (maxY-2) +1;                     \
+  x=rand() % (maxX-2) +1;                     \
   }
 
 #include <ncurses.h>
